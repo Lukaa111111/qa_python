@@ -1,6 +1,5 @@
 Описание тестовых функций для класса BooksCollector:
 
-
 1. Проверяет словари конструктора при создании объекта
     def test_books_genre_fav_dict_is_empty(self, books_collector):
 
