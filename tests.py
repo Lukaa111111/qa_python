@@ -45,7 +45,7 @@ class TestBooksCollector:
         books_collector.set_book_genre('Винни пух в космосе', 'Фантастика')
         assert books_collector.get_book_genre('Винни пух в космосе') == 'Фантастика'
 
-    def test_get_books_with_specific_genre_when_valid_genre(self, books_collector):# проверка что выводится список по жанрам. Добаялаем книу, задаем жанр, проверяем жанр и что список книг ему соответствует.
+    def test_get_books_with_specific_genre_when_valid_genre(self, books_collector):# проверка что выводится список по жанрам. Добавляем книу, задаем жанр, проверяем жанр и что список книг ему соответствует.
 
         books_collector.add_new_book('Буратино')
         books_collector.set_book_genre('Буратино', 'Мультфильмы')
@@ -76,7 +76,7 @@ class TestBooksCollector:
 
     def test_get_books_for_children_adult_rating(self, books_collector): #проверяем что книги 18+ не попадают в список книг для детей.
 
-        books = ['Дюймовочка', 'Снежная королева']
+        books = ['Малышка', 'Гадкий утенок']
         x = 0
         for name in books:
             books_collector.add_new_book(name)
