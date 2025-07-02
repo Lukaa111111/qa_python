@@ -24,3 +24,5 @@ Thumbs.db
 .idea/
 .idea
 *.iml
+/.idea/
+/__pycache__/
