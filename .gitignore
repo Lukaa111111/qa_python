@@ -22,4 +22,5 @@ build/
 Thumbs.db
 # IDE files
 .idea/
+.idea
 *.iml
