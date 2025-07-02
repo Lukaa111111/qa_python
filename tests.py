@@ -58,7 +58,7 @@ class TestBooksCollector:
         books_collector.add_new_book(name)
         assert not books_collector.get_books_with_specific_genre('Рассказ')
 
-    def test_get_books_genre_empty_dict(self, books_collector): #проверка,  что нельзя получить пустой список
+    def test_get_books_genre_empty_dict(self, books_collector): #проверка, что нельзя получить пустой список
 
         assert not books_collector.get_books_genre()
 

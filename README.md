@@ -277,7 +277,7 @@ def test_add_book_in_favorites_when_books_in_list(self, books_collector):
         books_collector.delete_book_from_favorites('Знамение')
         assert 'Знамение' not in books_collector.favorites
 
-16. Тест проверяет удаление книги, которой в избранном нет. Добавляем новую книгу в список, затем добавляем ее в избранное. Ассертим попытку удаления несуществующей книги.
+16. Тест проверяет удаление книги,которой в избранном нет. Добавляем новую книгу в список, затем добавляем ее в избранное. Ассертим попытку удаления несуществующей книги.
        def test_delete_book_from_favorites_no_name_in_list(self, books_collector): 
         books_collector.add_new_book('Муха в шоколаде')
         books_collector.add_book_in_favorites('Муха в шоколаде')
