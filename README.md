@@ -1,3 +1,4 @@
+
 Описание тестовых функций для класса BooksCollector:
 
 
@@ -146,3 +147,4 @@ def test_add_book_in_favorites_when_books_in_list(self, books_collector):
         books_collector.add_book_in_favorites('Бемби')
         books_collector.delete_book_from_favorites('Бемби')
         assert not books_collector.get_list_of_favorites_books()
+
