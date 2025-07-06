@@ -6,14 +6,25 @@
         assert len(books_collector.books_genre) == 0 and len(books_collector.favorites) == 0
 
 2. Проверяет что у созданного объекта есть заполненный список с жанрами
-    def test_genre_list_is_not_empty(self, books_collector):
-
-        assert books_collector.genre == ['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии']
+    def test_genre_list_is_not_empty(self, books_collector): 
+        books_collector.add_new_book('Мальчик из тыквы')
+        expected_genres = ['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии']
+    
+        for genre in expected_genres:
+            books_collector.set_book_genre('Мальчик из тыквы', genre)
+            assert books_collector.get_book_genre('Мальчик из тыквы') == genre
 
 3. Проверяет что у созданного объекта есть список с жанрами 18+
     def test_genre_age_rating_list_is_not_empty(self, books_collector):
 
-        assert books_collector.genre_age_rating == ['Ужасы', 'Детективы']  
+        books_collector.add_new_book('Ужастик')
+        books_collector.set_book_genre('Ужастик', 'Ужасы')
+        books_collector.add_new_book('Детектив')
+        books_collector.set_book_genre('Детектив', 'Детективы')
+    
+        children_books = books_collector.get_books_for_children()
+        assert 'Ужастик' not in children_books
+        assert 'Детектив' not in children_books
 
 4. Тест с параметризацией проверяет добавление новых книг в список
     @pytest.mark.parametrize('book', ['Мальчик с пальчик', 'Барабашка'])
@@ -222,10 +233,14 @@ def test_add_book_in_favorites_when_books_in_list(self, books_collector):
         books_collector.add_new_book(name)
         assert not books_collector.get_books_with_specific_genre('Рассказ')
 
-12. Тест проверяет что нельзя получить пустой список
-    def test_get_books_genre_empty_dict(self, books_collector):
-
-        assert not books_collector.get_books_genre()
+12. Тест проверяет, что метод возвращает словарь, а не None или другой тип
+    def test_get_books_genre_always_returns_dict(self, books_collector):
+     result = books_collector.get_books_genre()
+        assert result is not None  
+        assert isinstance(result, dict)  
+        books_collector.add_new_book('Маркиза и тарелка')
+        result = books_collector.get_books_genre()
+        assert isinstance(result, dict)
 
 13. Тест проверяет что в списке с книгами есть только книги с рейтингом для детей. Циклом создаем список и добавляем всем книгам разные жанры. Вторым циклом проверяем есть ли в первом списке жанры 18+
     def test_get_books_for_children_correct_genre(self, books_collector):
