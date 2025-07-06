@@ -14,6 +14,7 @@
             books_collector.set_book_genre('Мальчик из тыквы', genre)
             assert books_collector.get_book_genre('Мальчик из тыквы') == genre
 
+
 3. Проверяет что у созданного объекта есть список с жанрами 18+
     def test_genre_age_rating_list_is_not_empty(self, books_collector):
 

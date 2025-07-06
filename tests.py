@@ -1,6 +1,7 @@
 import pytest
 class TestBooksCollector:
 
+
     def test_books_genre_fav_dict_is_empty(self, books_collector): #тест проверяет словари конструтора при создании объекты
 
         assert len(books_collector.get_books_genre()) == 0 and len(books_collector.get_list_of_favorites_books()) == 0
